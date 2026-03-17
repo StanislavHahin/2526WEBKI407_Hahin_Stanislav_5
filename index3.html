@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BH1750 Monitor</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #1a1a1d;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 { color: #4fc3f7; }
+  canvas { background: #0f172a; border-radius: 12px; padding: 10px; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<h1>BH1750 Light Monitor</h1>
+<canvas id="lightChart" width="400" height="200"></canvas>
+
+<script>
+const ctx = document.getElementById('lightChart').getContext('2d');
+const data = {
+  labels: [],
+  datasets: [{
+    label: 'Освітленість (lux)',
+    data: [],
+    borderColor: '#4fc3f7',
+    backgroundColor: 'rgba(79, 195, 247, 0.2)',
+    tension: 0.3
+  }]
+};
+
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: {
+    responsive: true,
+    animation: false,
+    scales: {
+      y: { beginAtZero: true }
+    }
+  }
+});
+
+// WebSocket підключення
+const socket = new WebSocket('ws://' + location.hostname + ':81');
+socket.onmessage = function(event) {
+  const json = JSON.parse(event.data);
+  const time = new Date().toLocaleTimeString();
+
+  data.labels.push(time);
+  data.datasets[0].data.push(json.lux);
+
+  if (data.labels.length > 20) { // Rolling window
+    data.labels.shift();
+    data.datasets[0].data.shift();
+  }
+  chart.update('none');
+};
+</script>
+
+</body>
+</html>
