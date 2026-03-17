@@ -1,1 +1,5 @@
-# Лабораторні роботи
+
+Lab 3
+Hardware: ESP32 Dev Module, BME280 Sensor (Temperature, Humidity, Pressure), I2C Interface (21, 22).
+
+Libraries: WiFi.h, ESPAsyncWebServer.h, AsyncTCP.h, LittleFS.h, ArduinoJson.h, Adafruit_Sensor.h, Adafruit_BME280.h, Wire.h.
