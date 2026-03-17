@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESP32 Secure Panel</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Verdana', sans-serif;
+        background: linear-gradient(135deg, #1a1a1a, #111111);
+        color: #00ffcc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+		height: 100vh;
+		}
+		.dashboard {
+			background: #0f111a;
+			padding: 40px 50px;
+			border-radius: 25px;
+			border: 2px solid #00ffcc;
+			text-align: center;
+			box-shadow: 0 0 30px rgba(0, 255, 204, 0.4);
+			max-width: 400px;
+		}
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 20px;
+			color: #00ffcc;
+			letter-spacing: 1.5px;
+		}
+		p {
+			font-size: 1.1rem;
+			margin: 10px 0;
+			color: #c0f0e8;
+		}
+		.status {
+			margin-top: 20px;
+			padding: 10px 0;
+			border-top: 1px solid #00ffcc;
+			color: #a0f0d0;
+			font-style: italic;
+		}
+		.footer {
+			margin-top: 25px;
+			font-size: 0.8rem;
+			color: #66ffdd;
+			opacity: 0.7;
+		}
+</style>
+</head>
+<body>
+<div class="dashboard">
+    <h1>ESP32 HTTPS Panel</h1>
+    <p>Сервер працює в захищеному режимі HTTPS</p>
+    <p>Автор: Гагін С.Я.</p>
+    <div class="status">Поточний статус: Онлайн</div>
+    <div class="footer">Лабораторна робота • 2026</div>
+</div>
+</body>
+</html>
