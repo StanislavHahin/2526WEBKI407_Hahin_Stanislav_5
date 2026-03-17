@@ -1,1 +1,4 @@
-# Лабораторні роботи
+Lab 5
+Hardware: ESP32 Dev Module, Hardware RSA Engine.
+
+Libraries: WiFi.h, HTTPSServer.hpp, SSLCert.hpp, HTTPRequest.hpp, HTTPResponse.hpp.
