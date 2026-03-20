@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESP32 Wi-Fi Setup Portal</title>
+<style>
+  body {
+    font-family: 'Verdana', sans-serif;
+    background: linear-gradient(120deg, #ffecd2, #fcb69f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .portal {
+    background: #ffffffdd;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    width: 360px;
+    text-align: center;
+    border: 2px solid #f7941d;
+  }
+
+  h2 {
+    color: #f7941d;
+    margin-bottom: 25px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #f7941d;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #f7941d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #d97706;
+  }
+
+  p {
+    font-size: 12px;
+    margin-top: 15px;
+    color: #444;
+  }
+</style>
+</head>
+<body>
+  <div class="portal">
+    <h2>ESP32 Wi-Fi Portal</h2>
+    <form action="/save" method="POST">
+      <input type="text" name="ssid" placeholder="SSID мережі" required>
+      <input type="password" name="pass" placeholder="Пароль Wi-Fi">
+      <button type="submit">Зберегти</button>
+    </form>
+    <p>Після збереження ESP32 перезавантажиться автоматично.</p>
+    <p>Captive Portal Active: <strong>192.168.1.101</strong></p>
+  </div>
+</body>
+</html>
